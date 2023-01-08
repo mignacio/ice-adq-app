@@ -1,67 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1"
     android:layout_height="match_parent"
     xmlns:ap="http://schemas.android.com/apk/res-auto"
     tools:context=".MainActivity"
-    android:baselineAligned="false">
+    android:baselineAligned="false"
+    >
 
-    <com.google.android.material.tabs.TabLayout
+    <com.androidplot.xy.XYPlot
+        android:id="@+id/xyplot"
+        style="@style/APDefacto"
+        ap:rangeTitle="Range Title"
+        ap:domainTitle="Domain Title"
+        ap:lineLabels="left|bottom"
+        ap:lineLabelRotationBottom="-45"
+        ap:lineLabelRotationLeft="-45"
+        ap:title="Chart Title"
         android:layout_width="match_parent"
+        android:layout_weight="0.5"
         android:layout_height="wrap_content"
-        android:id="@+id/tab_layout">
+        />
 
-        <com.google.android.material.tabs.TabItem
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_weight="0"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="0.6">
+        <Button
+            android:id="@+id/btOn"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Plots"/>
+            android:layout_weight="0.2"
+            android:layout_height="match_parent"
+            android:text="@string/bluetooth_on">
+        </Button>
 
-        <com.google.android.material.tabs.TabItem
+        <Button
+            android:id="@+id/btOff"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Bluetooth"/>
+            android:layout_weight="0.2"
+            android:layout_height="match_parent"
+            android:text="@string/bluetooth_off">
+        </Button>
 
-    </com.google.android.material.tabs.TabLayout>
+        <Button
+            android:id="@+id/btShow"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_weight="0.2"
+            android:layout_height="match_parent"
+            android:text="@string/bluetooth_show">
+        </Button>
+    </LinearLayout>
 
-    <androidx.viewpager2.widget.ViewPager2
+    <ListView
+        android:id="@+id/listView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/view_pager"
-        android:layout_below="@id/tab_layout"/>
+        android:layout_weight="0.25" />
 
-
-
-<!--    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_weight="1"
-        android:weightSum="2">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1.75"
-            android:orientation="horizontal"
-            android:weightSum="1">
-
-        </LinearLayout>
-
-        <com.androidplot.xy.XYPlot
-            android:id="@+id/xyplot"
-            style="@style/APDefacto"
-            ap:rangeTitle="Range Title"
-            ap:domainTitle="Domain Title"
-            ap:lineLabels="left|bottom"
-            ap:lineLabelRotationBottom="-45"
-            ap:lineLabelRotationLeft="-45"
-            ap:title="Chart Title"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="0.25"
-            />
-    </LinearLayout>-->
-
-</RelativeLayout>
+</LinearLayout>

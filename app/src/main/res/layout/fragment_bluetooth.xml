@@ -7,44 +7,4 @@
     android:orientation="vertical"
     android:weightSum="1">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_weight="0.9"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:weightSum="0.6">
-        <Button
-            android:id="@+id/btOn"
-            style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="match_parent"
-            android:layout_weight="0.2"
-            android:layout_height="match_parent"
-            android:text="@string/bluetooth_on">
-        </Button>
-
-        <Button
-            android:id="@+id/btOff"
-            style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="match_parent"
-            android:layout_weight="0.2"
-            android:layout_height="match_parent"
-            android:text="@string/bluetooth_off">
-        </Button>
-
-        <Button
-            android:id="@+id/btShow"
-            style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="match_parent"
-            android:layout_weight="0.2"
-            android:layout_height="match_parent"
-            android:text="@string/bluetooth_show">
-        </Button>
-    </LinearLayout>
-
-    <ListView
-        android:id="@+id/listView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="0.1" />
-
 </LinearLayout>
