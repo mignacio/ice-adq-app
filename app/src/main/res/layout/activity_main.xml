@@ -35,7 +35,7 @@
             android:id="@+id/btOn"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="match_parent"
-            android:layout_weight="0.2"
+            android:layout_weight="0.15"
             android:layout_height="match_parent"
             android:text="@string/bluetooth_on">
         </Button>
@@ -44,7 +44,7 @@
             android:id="@+id/btOff"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="match_parent"
-            android:layout_weight="0.2"
+            android:layout_weight="0.15"
             android:layout_height="match_parent"
             android:text="@string/bluetooth_off">
         </Button>
@@ -53,16 +53,31 @@
             android:id="@+id/btShow"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="match_parent"
-            android:layout_weight="0.2"
+            android:layout_weight="0.15"
             android:layout_height="match_parent"
             android:text="@string/bluetooth_show">
+        </Button>
+
+        <Button
+            android:id="@+id/btScan"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_weight="0.15"
+            android:layout_height="match_parent"
+            android:text="@string/bluetooth_scan">
         </Button>
     </LinearLayout>
 
     <ListView
-        android:id="@+id/listView"
+        android:id="@+id/scanList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="0.25" />
+
+<!--    <ListView-->
+<!--        android:id="@+id/listView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_weight="1" />-->
 
 </LinearLayout>
