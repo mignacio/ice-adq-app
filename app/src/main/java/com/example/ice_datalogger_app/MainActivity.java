@@ -11,6 +11,7 @@ import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -30,10 +31,12 @@ import com.androidplot.xy.SimpleXYSeries;
 import com.androidplot.xy.XYGraphWidget;
 import com.androidplot.xy.XYPlot;
 import com.androidplot.xy.XYSeries;
+import com.harrysoft.androidbluetoothserial.BluetoothManager;
 
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.UUID;
 
 import java.util.Arrays;
@@ -87,6 +90,20 @@ public class MainActivity extends AppCompatActivity {
 
         IntentFilter intentFilter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
         registerReceiver(myReceiver, intentFilter);
+
+        //Bluetooth serial stuff
+        BluetoothManager serialBtManager = BluetoothManager.getInstance();
+        if(serialBtManager == null) {
+            Toast.makeText(getApplicationContext(), "Bluetooth not available.", Toast.LENGTH_LONG).show(); // Replace context with your context instance.
+            finish();
+        }
+
+        // Get list of paired devices
+        Collection<BluetoothDevice> pairedDevices = serialBtManager.getPairedDevicesList();
+        for (BluetoothDevice device : pairedDevices) {
+            Log.d("My Bluetooth App", "Device name: " + device.getName());
+            Log.d("My Bluetooth App", "Device MAC Address: " + device.getAddress());
+        }
 
         arrayAdapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, stringArrayList);
         scanListView.setAdapter(arrayAdapter);
